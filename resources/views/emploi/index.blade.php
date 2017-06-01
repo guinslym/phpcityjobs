@@ -2,47 +2,69 @@
   @section('content')
   <div class="row">
   	<div class="col-md-12">
-  		<h1>Index page</h1>
+  		<h1>Job list</h1>
   	</div>
   </div>
 
-  <div class="row">
-  		<?php $no=1; ?>
-      <div class="row text-right">
-        
-      <a href="" class='btn btn-primary'>Create New Blog post</a>
-      </div>
-      <hr>
-    <table class="table table-stripped">
-      <tr>
-        <td>Id </td>
-        <td>JOBURL </td>
-        <td>POSITION </td>
-        <td>Show </td>
-        <td>edit/delete </td>
-      </tr>
 
 
-  		@foreach($emplois as $emploi)
-			<tr>
-				<td>{{$no++}}</td>
-				<td>{{$emploi->JOBURL}}</td>
-				<td>{{$emploi->POSITION}}</td>
-        <td>          
-          <a class="btn btn-primary" href="{{route('detail', $emploi->id)}}">Show</a>
-        </td>
-				<td>
-					<form class='' method='post' action="">
-						<input type="hidden" name='_method' value='delete'>
-						<input type="hidden" name='_token' value='{{ csrf_token() }}'>
-						<a href="" class='btn btn-warning'>Edit</a>
-						<input type="submit" class='btn btn-danger' onclick="return confirm('Are you sure that you want to delete this button')" name='delete' value='delete'>
-					</form>
+  <div class="row text-right">
+    <ul>
+      <li><strong>Sort by:</strong></li>
+        <li class="">
+          <a href="">Posted within the last 2 weeks</a>
+        </li>
+      <li class=""><a href="">Will expired in 2 weeks from now</a></li>
+      <li class=""><a href="">All jobs</a></li>
+    </ul>
+  </div>
 
-				</td>
-			</tr>
-  		@endforeach
-  	</table>
+<div class="row">
+<div class="text-left">
+<br/>
+
+
+  		
+        <hr>
+  		
+
+
+<div class="outterspace">
+
+<span class="nonetype" style="display:none;">
+</span>
+  @foreach($emplois as $emploi)
+  <div class="filterWrap">
+
+    <h3><a href="">{{ $emploi->POSITION }}.</a>
+          <small><i class="fa fa-ban" aria-hidden="true"></i></small>
+      </h3>
+
+    <p>
+            {{ str_limit($emploi->JOB_SUMMARY, 50) }}
+    </p>
+    <ul>
+
+          <li><strong>Salary Max: </strong>
+           $ {{ $emploi->SALARYMAX }}
+          </li>
+          <li><strong>Salary Min: </strong>
+          $ {{ $emploi->SALARYMIN  }}
+          </li>
+
+
+      <li><strong>Expiring date : </strong> <em>{{ Carbon\Carbon::parse($emploi->EXPIRYDATE)->format('Y-m-d') }} <abbr title="ordre"><i class="fa fa-long-arrow-down" aria-hidden="true"></i></abbr> </em></li>
+      <li><strong>postdate: </strong> {{ Carbon\Carbon::parse($emploi->POSTDATE)->format('Y-m-d') }} </li>
+      <li><strong>Apply link: </strong> <a href="{{ $emploi->JOBURL }}" target="_blank">Apply</a></li>
+    </ul>
+
+  </div><!-- div.filterWrap-->
+  @endforeach
+</div><!-- div.outterspace-->
+
+
+
+  </div>
   </div>
 
   @stop

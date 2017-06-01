@@ -1,10 +1,5 @@
-@extends('emploi->base')
+@extends('emploi.base')
   @section('content')
-  <div class="row">
-  	<div class="col-md-12">
-  		<h1>Detail page</h1>
-  	</div>
-  </div>
 
 	<div class="row">
 		<div class="col-lg-12">
@@ -18,8 +13,9 @@
 					<li><strong>Salary Min: </strong>
 					$ {{ $emploi->SALARYMIN  }}
 					</li>
-					<li><strong>Expiring date: </strong>{{ $emploi->EXPIRYDATE }}</li>
-					<li><strong>postdate: </strong> {{ $emploi->POSTDATE }}</li>
+					<li><strong>Expiring date: </strong>
+					{{  Carbon\Carbon::parse($emploi->EXPIRYDATE)->format('Y-m-d') }}</li>
+					<li><strong>postdate: </strong> {{ Carbon\Carbon::parse($emploi->POSTDATE)->format('Y-m-d') }}</li>
 					<li><strong>apply link: </strong> <a href="{{ $emploi->JOBURL }}" target="_blank">apply</a></li>
 			</ul>
 
