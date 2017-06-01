@@ -1,7 +1,8 @@
 todo:
- ☐ Realtionship (OnetoOne)
- ☐ Seed the db: again
- ☐ Detail.blade.php
- ☐ Pagination (Index.blade.php)
- ☐ Update_and_tweets
+ ✔ Realtionship (OnetoOne) @done (17-06-01 18:11)
+ ✔ Seed the db: again @done (17-06-01 18:11)
+ ✔ Detail.blade.php @done (17-06-01 18:22)
+ ✔ Pagination (Index.blade.php) @done (17-06-01 18:38)
+   ☐ https://www.youtube.com/watch?v=aeqkFPvV3Eg
  ☐ Updates the link (a:href) in the application
+ ☐ Update_and_tweets

@@ -12,10 +12,10 @@
     <ul>
       <li><strong>Sort by:</strong></li>
         <li class="">
-          <a href="">Posted within the last 2 weeks</a>
+          <a href="{{  route('home_ordering', ['ordering' => 'ago']) }}">Posted within the last 2 weeks</a>
         </li>
-      <li class=""><a href="">Will expired in 2 weeks from now</a></li>
-      <li class=""><a href="">All jobs</a></li>
+      <li class=""><a href="{{  route('home_ordering', ['ordering' => 'from']) }}">Will expired in 2 weeks from now</a></li>
+      <li class=""><a href="{{  route('home') }}">All jobs</a></li>
     </ul>
   </div>
 
@@ -31,12 +31,14 @@
 
 <div class="outterspace">
 
+{{ $emplois->links() }}
+
 <span class="nonetype" style="display:none;">
 </span>
   @foreach($emplois as $emploi)
   <div class="filterWrap">
 
-    <h3><a href="">{{ $emploi->POSITION }}.</a>
+    <h3><a href="{{ url('emploi/show', [$emploi->id]) }}">{{ $emploi->POSITION }}.</a>
     <!-- Need to have an if else statement here -->
   {{ ((Carbon\Carbon::parse($emploi->EXPIRYDATE)->isPast()) ===1)  }}
           <small><i class="fa fa-ban" aria-hidden="true"></i></small>

@@ -12,12 +12,12 @@
 */
 
 //homeListView
+Route::get('/query/{ordering?}', 'EmploiController@index')->name('home_ordering');
+Route::get('/emploi/{ordering?}', 'EmploiController@index')->name('home_order');
 Route::get('/', 'EmploiController@index')->name('home');
-Route::get('/query/{ordering?}', 'EmploiController@index')->name('home');
-Route::get('/emploi/{ordering?}', 'EmploiController@index')->name('home');
 
 //Detail View (get)
-Route::get('emploi/show/{id}/', 'EmploiController@show')->where('id', '[0-9]+')->name('detail');
+Route::get('emploi/show/{id}', 'EmploiController@show')->where('id', '[0-9]+')->name('detail');
 
 //TemplateView
 Route::get('/about/', 'EmploiController@aboutPage')->name('about');

@@ -18,7 +18,12 @@
 					<li><strong>postdate: </strong> {{ Carbon\Carbon::parse($emploi->POSTDATE)->format('Y-m-d') }}</li>
 					<li><strong>apply link: </strong> <a href="{{ $emploi->JOBURL }}" target="_blank">apply</a></li>
 			</ul>
-
+		
+			<!-- Description -->
+			{{ $emploi->description->KNOWLEDGE }}
+			{{ $emploi->description->LANGUAGE_CERTIFICATES }}
+			{{ $emploi->description->EDUCATIONANDEXP }}
+			{{ $emploi->description->COMPANY_DESC }}
 
 		</div>
 	</div>
