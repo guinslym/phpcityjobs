@@ -37,7 +37,12 @@
   <div class="filterWrap">
 
     <h3><a href="">{{ $emploi->POSITION }}.</a>
+    <!-- Need to have an if else statement here -->
+  {{ ((Carbon\Carbon::parse($emploi->EXPIRYDATE)->isPast()) ===1)  }}
           <small><i class="fa fa-ban" aria-hidden="true"></i></small>
+ 
+
+    
       </h3>
 
     <p>
