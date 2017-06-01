@@ -11,7 +11,7 @@
 |
 */
 
-/** @var \Illuminate\Database\Eloquent\Factory $factory */
+/** @var \Illuminate\Database\Eloquent\Factory $factory 
 $factory->define(App\User::class, function (Faker\Generator $faker) {
     static $password;
 
@@ -22,6 +22,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+*/
 
 $factory->define(App\Emploi::class, function (Faker\Generator $faker) {
 
@@ -40,3 +41,21 @@ $factory->define(App\Emploi::class, function (Faker\Generator $faker) {
         'slug' => str_random(10),
     ];
 });
+
+
+$factory->define(App\Description::class, function ($faker) use ($factory) {
+
+
+
+    return [
+
+    'KNOWLEDGE' => $faker->text,
+    'LANGUAGE_CERTIFICATES' => $faker->text,
+    'EDUCATIONANDEXP' => $faker->text,
+    'COMPANY_DESC' => $faker->text,
+    'POSTDATE' => $faker->dateTime(),
+    'emploi_id' => factory(App\Emploi::class)->create()->id
+
+    ];
+});
+

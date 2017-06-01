@@ -28,14 +28,14 @@ class CreateDescriptionTable extends Migration
         //
         Schema::create('descriptions', function(Blueprint $table){
             $table->increments('id');
-            $table->integer('emploi_id')->unsigned();
+            $table->integer('emploi_id')->unsigned()->nullable();
+            $table->foreign('emploi_id')->references('id')->on('emplois');
             $table->longText('KNOWLEDGE')->nullable();
             $table->longText('LANGUAGE_CERTIFICATES')->nullable();
             $table->longText('EDUCATIONANDEXP')->nullable();
             $table->longText('COMPANY_DESC')->nullable();
             $table->dateTimeTz('POSTDATE')->nullable();
             $table->timestamps();
-            $table->foreign('emploi_id')->references('id')->on('emplois');
         });
     }
 
