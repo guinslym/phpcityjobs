@@ -22,18 +22,18 @@ class EmploiController extends Controller
         //expired 2 weeks ago
         //http://localhost:8000/?ordering=ago
         if ($ordering == 'ago') {
-           $emplois = Emploi::paginate(5)->orderBy('created_at', 'asc')->first();
+           $emplois = Emploi::paginate(25)->orderBy('created_at', 'asc')->first();
            return view('emploi.index', ['emplois' => $emplois]);
            //return response()->json($emplois,200,[],JSON_PRETTY_PRINT);
         }
         // will expire 2 weeks from now
         //http://localhost:8000/?ordering=from
         elseif ($ordering == 'from') {
-           $emplois = Emploi::paginate(5)->orderBy('created_at', 'desc')->first();
+           $emplois = Emploi::paginate(25)->orderBy('created_at', 'desc')->first();
            return view('emploi.index', ['emplois' => $emplois]);
            //return response()->json($emplois,200,[],JSON_PRETTY_PRINT);
         }else {
-           $emplois = Emploi::paginate(5);
+           $emplois = Emploi::SimplePaginate(25);
            return view('emploi.index', ['emplois' => $emplois]);
            //return response()->json($emplois,200,[],JSON_PRETTY_PRINT);
         }
@@ -76,7 +76,21 @@ class EmploiController extends Controller
      */
     public function showStatistics()
     {
-        //
+        /*
+        english = Job.objects.filter(language=self.language())
+        #Grouup by date
+        data = english.values('POSTDATE').annotate(dcount=Count('POSTDATE'))
+        content = {}
+        #I want the date in a UNIX TIME format
+        for job in data:
+            unix_time = time.mktime(job['POSTDATE'].timetuple())
+            content.update({unix_time:job['dcount']})
+        context['stats'] = content
+
+        return context
+
+        */
+
         return view('emploi.stats');
         //return response()->json('Statistics' ,200,[],JSON_PRETTY_PRINT);
     }

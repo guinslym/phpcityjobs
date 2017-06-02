@@ -2,7 +2,9 @@ todo:
  ✔ Realtionship (OnetoOne) @done (17-06-01 18:11)
  ✔ Seed the db: again @done (17-06-01 18:11)
  ✔ Detail.blade.php @done (17-06-01 18:22)
+ ✔ Updates the link (a:href) in the application @done (17-06-01 19:04)
  ✔ Pagination (Index.blade.php) @done (17-06-01 18:38)
-   ☐ https://www.youtube.com/watch?v=aeqkFPvV3Eg
- ☐ Updates the link (a:href) in the application
+   ✔ https://www.youtube.com/watch?v=aeqkFPvV3Eg @done (17-06-01 22:40)
+ ☐ job_search (search form)
+ ☐ stats
  ☐ Update_and_tweets

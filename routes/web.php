@@ -32,3 +32,4 @@ Route::get('/statistics/{annee}/{mois}/{jour}', 'EmploiController@showStatistics
 
 //Search View (get)
 Route::get('search/{searchkey}', 'EmploiController@search')->where('searchkey', '[A-Za-z]+')->name('search');
+
