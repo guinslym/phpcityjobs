@@ -24,6 +24,16 @@ class EmploisTableSeeder extends Seeder
         $emplois = $emplois->jobs;
         //count($emplois) => 81
 
+
+        use App\Emploi;
+        $emp = Emploi::create($array['order']);
+        $emp = Emploi::create($emplois);
+
+foreach ($emplois as $key => $value) {
+    # code...
+    dd($key);
+}
+
         for ($i = 0; $i < count($emplois); $i++) {
             //print_r($emplois[$i]->JOBREF);
 
@@ -59,17 +69,32 @@ array('COMPANY_DESC' => isset( $emplois[$i]->COMPANY_DESC) ? $emplois[$i]->COMPA
 
 /*
 ini_set("allow_url_fopen", 1);
-$json = file_get_contents('http://www.ottawacityjobs.ca/fr/data/');
+$json = file_get_contents('http://www.ottawacityjobs.ca/en/data/');
 $obj = json_decode($json);
+$obj = $obj->jobs;
 
 
-$fp = fopen('jobs-fr-june-4.json', 'w');
-fwrite($fp, json_encode($obj));
+$fp = fopen('jobs.json', 'w');
+fwrite($fp, json_encode($obj, JSON_PRETTY_PRINT));
 fclose($fp);
 
 
 
 
+[
+    {
+        "var1": "9",
+        "var2": "16",
+        "var3": "16"
+    },
+    {
+        "var1": "8",
+        "var2": "15",
+        "var3": "15"
+    }
+]
 
-
+$json  = '[{"var1":"9","var2":"16","var3":"16"},{"var1":"8","var2":"15","var3":"15"}]';
+$data = json_decode($json);
+var_dump($data[0]['var1']);
 */
