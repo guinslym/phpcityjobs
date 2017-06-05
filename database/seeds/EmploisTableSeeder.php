@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+use App\Emploi;
 class EmploisTableSeeder extends Seeder
 {
     /**
@@ -13,15 +13,30 @@ class EmploisTableSeeder extends Seeder
     {
         //
         //factory(App\Emploi::class, 50)->create();
+        $json = file_get_contents('http://www.ottawacityjobs.ca/en/data/');
+        $emplois = json_decode($json);
+
+        foreach ($emplois as $item) {
+            Emploi::insert(
+                array(
+                    array('JOBURL' => $item->JOBURL ),
+                    array('SALARYMAX' => $item->SALARYMAX ),
+                    array('SALARYMIN' => $item->SALARYMIN ),
+                    array('SALARYTYPE' => $item->SALARYTYPE ),
+                    array('NAME' => $item->NAME ),
+                    array('POSITION' => $item->POSITION ),
+                    array('JOBREF' => $item->JOBREF ),
+                    array('JOB_SUMMARY' => $item->JOB_SUMMARY ),
+                    array('POSTDATE' => $item->POSTDATE ),
+                    array('EXPIRYDATE' => $item->EXPIRYDATE ),
+                    array('KNOWLEDGE' => $item->KNOWLEDGE ),
+                    array('LANGUAGE_CERTIFICATES' => $item->LANGUAGE_CERTIFICATES ),
+                    array('EDUCATIONANDEXP' => $item->EDUCATIONANDEXP ),
+                    array('COMPANY_DESC' => $item->COMPANY_DESC ),
+                ));
+        }//end foreach
         
-        Emploi::insert(
-            array(
-                    array('name' => 'admin'),
-                    array('name' => 'user'),
-                    array('name' => 'moderator'),                                
-            ));
-        
-    }
+    }//end
 }
 
 /*
