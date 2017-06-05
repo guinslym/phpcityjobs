@@ -16,7 +16,7 @@ class CreateEmploiTable extends Migration
         //
         Schema::create('emplois', function(Blueprint $table){
              $table->increments('id');
-             $table->string('JOBURL', 250)->nullable();
+             $table->longText('JOBURL')->nullable();
              $table->string('SALARYMAX', 40)->nullable();
              $table->string('SALARYMIN', 40)->nullable();
              $table->string('SALARYTYPE', 20)->nullable();
