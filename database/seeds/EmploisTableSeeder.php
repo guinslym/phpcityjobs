@@ -12,6 +12,8 @@ class EmploisTableSeeder extends Seeder
      * Run the database seeds.
      *
      * @return void
+     *
+     *php artisan db:seed --class=EmploisTableSeeder
      */
     public function run()
     {
@@ -41,6 +43,7 @@ array('KNOWLEDGE' => isset($emplois[$i]->KNOWLEDGE) ? $emplois[$i]->KNOWLEDGE : 
 array('LANGUAGE_CERTIFICATES' => isset($emplois[$i]->LANGUAGE_CERTIFICATES) ?  $emplois[$i]->LANGUAGE_CERTIFICATES : ' ' ),
 array('EDUCATIONANDEXP' => isset($emplois[$i]->EDUCATIONANDEXP) ? $emplois[$i]->EDUCATIONANDEXP : ' ' ),
 array('COMPANY_DESC' => isset( $emplois[$i]->COMPANY_DESC) ? $emplois[$i]->COMPANY_DESC   : ' '),
+                
                 ));
 
 
