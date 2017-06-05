@@ -5,12 +5,10 @@
 
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Flag_of_Ottawa%2C_Ontario.svg/250px-Flag_of_Ottawa%2C_Ontario.svg.png">
 
-       <form accept-charset="UTF-8" action="{{ url('search/') }}" class="form-group main-form" id="search-form" method="get">
-       {{ csrf_field() }}
-          <div style="display:none"><input name="utf8" type="hidden" value="✓"></div>
-          <input class="form-group main-form" id="q_objname_en_cont" name="searchKey"  placeholder='Search by Job title' required="required" style="height:40px;width:60%" type="search">
-          <input class="btn btn-warning" type="submit" value="Search">
-       </form>
+	{!! Form::open(['method'=>'GET' ,'url' => 'search', 'class'=>'form-group main-form', 'id'=>'search-form', 'role'=>'search']) !!}
+	<input class="form-group main-form" id="q_objname_en_cont" name="searchKey"  placeholder='Search by Job title' required="required" style="height:40px;width:60%" type="search">
+	<input class="btn btn-warning" type="submit" value="Search">
+	{!! Form::close() !!}
 
 </div>
 </div>

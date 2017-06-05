@@ -13,4 +13,14 @@ class Emploi extends Model
 	    {
 	        return $this->hasOne('App\Description');
 	    }
+
+	public function scopeSearchByKeyword($query, $keyword)
+    {
+        if ($keyword!='') {
+            $query->where(function ($query) use ($keyword) {
+                $query->where("POSITION", "LIKE","%$keyword%");
+            });
+        }
+        return $query;
+    }
 }

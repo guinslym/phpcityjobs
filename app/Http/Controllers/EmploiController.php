@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Emploi;
 use App\Description;
+use Illuminate\Support\Facades\Input;
 
 
 class EmploiController extends Controller
@@ -33,7 +34,7 @@ class EmploiController extends Controller
            return view('emploi.index', ['emplois' => $emplois]);
            //return response()->json($emplois,200,[],JSON_PRETTY_PRINT);
         }else {
-           $emplois = Emploi::SimplePaginate(25);
+           $emplois = Emploi::Paginate(25);
            return view('emploi.index', ['emplois' => $emplois]);
            //return response()->json($emplois,200,[],JSON_PRETTY_PRINT);
         }
@@ -122,13 +123,10 @@ class EmploiController extends Controller
     public function search(Request $request)
     {
         
-        
-
         $searchkey = $request->get('searchkey');
-        $emplois = DB::table('emploi')
-                ->where('JOBURL', 'like', $searchKey)
-                ->get();
-        return view('emploi.search', ['emploi' => $emplois ]);
+        $keyword = Input::get('searchKey', '');
+        $emplois = Emploi::SearchByKeyword($keyword)->get();
+        return view('emploi.search', ['emplois' => $emplois ]);
         //return 0;
     }
 

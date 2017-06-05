@@ -11,6 +11,8 @@
 |
 */
 
+
+
 //homeListView
 Route::get('/query/{ordering?}', 'EmploiController@index')->name('home_ordering');
 Route::get('/emploi/{ordering?}', 'EmploiController@index')->name('home_order');
@@ -31,5 +33,5 @@ Route::get('/statistics', 'EmploiController@showStatistics')->name('statistics')
 Route::get('/statistics/{annee}/{mois}/{jour}', 'EmploiController@showStatisticsJSON')->name('statsJSON')->where('annee', '^(19|20)\d{2}$')->where('mois', '^(19|20)\d{2}$')->where('jour', '^(19|20)\d{2}$');
 
 //Search View (get)
-Route::get('search/{searchkey}', 'EmploiController@search')->where('searchkey', '[A-Za-z]+')->name('search');
+Route::get('search', 'EmploiController@search')->name('search');
 
