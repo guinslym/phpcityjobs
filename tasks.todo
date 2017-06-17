@@ -7,9 +7,9 @@ todo:
  ✔ set language (or remove French Language -- or by default take EN only) @done (17-06-16 23:30)
  ✔ View will expired in 2 weeks .. I don't think it works @done (17-06-17 13:58)
  ☐ Update_and_tweets ... add this route (with crypt and hour)
- ☐ Template font-awesome (already expired)
+ ✔ Template font-awesome (already expired) @done (17-06-17 14:03)
  ☐ Add number of jobs found
- ☐ add template (order down (font-awesome))
+ ✔ add template (order down (font-awesome)) @done (17-06-17 14:03)
  ☐ add human.txt
  ☐ /About/ change Github page
  ☐ stats (add this.. ) 1 hour
