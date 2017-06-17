@@ -40,8 +40,9 @@
 
     <h3><a href="{{ url('emploi/show', [$emploi->id]) }}">{{ $emploi->POSITION }}. <span style='display:none;'>--{{ $emploi->id  }}</span> </a>
     <!-- Need to have an if else statement here -->
-  {{ ((Carbon\Carbon::parse($emploi->EXPIRYDATE)->isPast()) ===1)  }}
+    @if ((Carbon\Carbon::parse($emploi->EXPIRYDATE)->isPast()) ===1)
           <small><i class="fa fa-ban" aria-hidden="true"></i></small>
+    @endif
  
 
     
