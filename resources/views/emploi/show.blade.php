@@ -20,10 +20,10 @@
 			</ul>
 		
 			<!-- Description -->
-			{{ $emploi->KNOWLEDGE }}
-			{{ $emploi->LANGUAGE_CERTIFICATES }}
-			{{ $emploi->EDUCATIONANDEXP }}
-			{{ $emploi->COMPANY_DESC }}
+			{!! $emploi->KNOWLEDGE !!}
+			{!! $emploi->LANGUAGE_CERTIFICATES !!}
+			{!! $emploi->EDUCATIONANDEXP !!}
+			{!! $emploi->COMPANY_DESC !!}
 
 		</div>
 	</div>

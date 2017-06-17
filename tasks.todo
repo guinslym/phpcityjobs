@@ -1,11 +1,12 @@
 todo:
- ☐ I didn't loop properly the json file
+ ✔ I didn't loop properly the json file @done (17-06-16 23:13)
    ✔ Seed the DB (Migrations/seeds/EmploisTableSeeder) @done (17-06-16 22:44)
    ✔ Timestamps() default to add in db @done (17-06-16 22:44)
-   ☐ Add language
- ☐ job_search (search form)
- ☐ stats
- ☐ Update_and_tweets\
+   ✔ Add language @done (17-06-16 23:13)
+ ✔ job_search (search form) @done (17-06-16 23:13)
+ ☐ stats (add this.. ) 1 hour
+ ☐ Update_and_tweets ... add this route (with crypt and hour)
+ ☐ Add 404 and 500 pages
  ☐ VUEjs
 
 Seeding:
