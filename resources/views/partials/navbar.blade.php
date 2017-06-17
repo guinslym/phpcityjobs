@@ -13,6 +13,9 @@
             <li><a href="{{ route('statistics') }}">Stats</a></li>
             <li><a href="{{ route('about') }}">About</a></li>
             <li><a href="{{ route('download') }}">Download</a></li>
+            <!--
+            <li><a href={{ asset('jobs_file/logo.png') }}>Download</a></li>
+            -->
           </ul>
 
         </div>
