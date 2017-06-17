@@ -2,7 +2,7 @@
   @section('content')
   <div class="row">
   	<div class="col-md-12">
-  		<h1>Result</h1>
+  		<h1>{{ str_plural('Result', $emplois->count() ) }}</h1>
   	</div>
   </div>
 
@@ -29,15 +29,14 @@
 
     <h3><a href="{{ url('emploi/show', [$emploi->id]) }}">{{ $emploi->POSITION }}. <span style='display:none;'>--{{ $emploi->id  }}</span> </a>
     <!-- Need to have an if else statement here -->
-  {{ ((Carbon\Carbon::parse($emploi->EXPIRYDATE)->isPast()) ===1)  }}
+    @if ((Carbon\Carbon::parse($emploi->EXPIRYDATE)->isPast()) ===1)
           <small><i class="fa fa-ban" aria-hidden="true"></i></small>
- 
-
+    @endif
     
       </h3>
 
     <p>
-            {{ str_limit($emploi->JOB_SUMMARY, 50) }}
+            {!! str_limit($emploi->JOB_SUMMARY, 300) !!}
     </p>
     <ul>
 
@@ -49,13 +48,19 @@
           </li>
 
 
-      <li><strong>Expiring date : </strong> <em>{{ Carbon\Carbon::parse($emploi->EXPIRYDATE)->format('Y-m-d') }} <abbr title="ordre"><i class="fa fa-long-arrow-down" aria-hidden="true"></i></abbr> </em></li>
+      <li><strong>Expiring date : </strong> <em>{{ Carbon\Carbon::parse($emploi->EXPIRYDATE)->format('Y-m-d') }} <abbr title="acending order or the Expiring date"><i class="fa fa-long-arrow-down" aria-hidden="true"></i></abbr> </em></li>
       <li><strong>postdate: </strong> {{ Carbon\Carbon::parse($emploi->POSTDATE)->format('Y-m-d') }} </li>
       <li><strong>Apply link: </strong> <a href="{{ $emploi->JOBURL }}" target="_blank">Apply</a></li>
     </ul>
 
   </div><!-- div.filterWrap-->
   @endforeach
+
+  <div class="filterWrap text-center">
+    @if ($emplois->count() ===0)
+          <h3>No job found</h3>
+    @endif
+  </div>
 </div><!-- div.outterspace-->
 
 

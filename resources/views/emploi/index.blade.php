@@ -73,6 +73,15 @@
 
   </div><!-- div.filterWrap-->
   @endforeach
+
+  <div class="filterWrap text-center">
+    @if ($emplois->count() ===0)
+          <h3>No job found</h3>
+    @endif
+  </div>
+
+
+  {{ $emplois->links() }}
 </div><!-- div.outterspace-->
 
 
