@@ -110,15 +110,15 @@
 	    $("#onClick-placeholder").empty();
 	    data.forEach(function(entry) {
 	      //console.log(entry);
-	      //console.log(entry['fields']['slug'])
-				//console.log(entry['fields']['EXPIRYDATE']);
-	      expirydate = Date.parse(entry['fields']['EXPIRYDATE']);
-	      position = entry['fields']['POSITION'];
+	      //console.log(entry[fields]['slug'])
+				//django needs [fields] but Laravel no ???
+	      expirydate = Date.parse(entry['EXPIRYDATE']);
+	      position = entry['POSITION'];
 				greater = false;
 				if (expirydate > today){
-					expirydate = entry['fields']['EXPIRYDATE'];
+					expirydate = entry['EXPIRYDATE'];
 				}else{
-					expirydate = entry['fields']['EXPIRYDATE'] + "<span class='already_expired'> -> already expired</span>";
+					expirydate = entry['EXPIRYDATE'] + "<span class='already_expired'> -> already expired</span>";
 				}
 
 				sentence = "Position : <b style='font-size:18px;'><a href=\"/" + "/emplois/" + entry['pk'] + '/' + "\"</a>" +  position + " </b><br/>" + " date : " +"<b>" +

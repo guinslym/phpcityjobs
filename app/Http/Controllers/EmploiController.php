@@ -114,15 +114,14 @@ class EmploiController extends Controller
      */
     public function showStatisticsJSON(Request $request, $annee=null, $mois=null, $jour=null)
     {
+
         //
         $annee = $request->get('annee');
         $mois = $request->get('mois');
         $jour = $request->get('jour');
-        $emplois = Emploi::whereYear('POSTDATE', '=', $annee)
-              ->whereMonth('POSTDATE', '=', $mois)
-              ->whereDay('POSTDATE', '=', $jour)
-              ->get();
-        return response()->json(emplois ,200,[],JSON_PRETTY_PRINT);
+        $emplois = Emploi::whereYear('POSTDATE', '=', $annee)->whereMonth('POSTDATE', '=', $mois)->whereDay('POSTDATE', '=', $jour)->get();
+        return $emplois;
+        //return response()->json($emplois ,200,[],JSON_PRETTY_PRINT);
     }
 
     /**
@@ -152,4 +151,6 @@ class EmploiController extends Controller
         $emplois = Emploi::all();
         return response()->json($emplois,200,[],JSON_PRETTY_PRINT);
     }
+
+
 }

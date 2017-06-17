@@ -31,7 +31,7 @@ Route::get('/download/', 'EmploiController@download')->name('download');
 //Statistics
 Route::get('/statistics', 'EmploiController@showStatistics')->name('statistics');
 //statistics result (JSON)
-Route::get('/statisticsJSON/{annee}/{mois}/{jour}', 'EmploiController@showStatisticsJSON')->name('statsJSON');//->where('annee', '^(19|20)\d{2}$')->where('mois', '^(19|20)\d{2}$')->where('jour', '^(19|20)\d{2}$');
+Route::get('/statisticsJSON/', 'EmploiController@showStatisticsJSON')->name('statsJSON');
 
 //Search View (get)
 Route::get('search', 'EmploiController@search')->name('search');
