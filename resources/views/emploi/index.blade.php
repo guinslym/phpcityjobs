@@ -12,9 +12,9 @@
     <ul>
       <li><strong>Sort by:</strong></li>
         <li class="">
-          <a href="{{  route('home_ordering', ['ordering' => 'ago']) }}">Posted within the last 2 weeks</a>
+          <a href="{{  route('posted_whithin_the_last_2_weeks') }}">Posted within the last 2 weeks</a>
         </li>
-      <li class=""><a href="{{  route('home_ordering', ['ordering' => 'from']) }}">Will expired in 2 weeks from now</a></li>
+      <li class=""><a href="{{  route('will_expire_2_weeks_from_now' ) }}">Will expired in 2 weeks from now</a></li>
       <li class=""><a href="{{  route('home') }}">All jobs</a></li>
     </ul>
   </div>
@@ -60,7 +60,7 @@
           </li>
 
 
-      <li><strong>Expiring date : </strong> <em>{{ Carbon\Carbon::parse($emploi->EXPIRYDATE)->format('Y-m-d') }} <abbr title="ordre"><i class="fa fa-long-arrow-down" aria-hidden="true"></i></abbr> </em></li>
+      <li><strong>Expiring date : </strong> <em>{{ Carbon\Carbon::parse($emploi->EXPIRYDATE)->format('Y-m-d') }} <abbr title="acending order or the Expiring date"><i class="fa fa-long-arrow-down" aria-hidden="true"></i></abbr> </em></li>
       <li><strong>postdate: </strong> {{ Carbon\Carbon::parse($emploi->POSTDATE)->format('Y-m-d') }} </li>
       <li><strong>Apply link: </strong> <a href="{{ $emploi->JOBURL }}" target="_blank">Apply</a></li>
     </ul>

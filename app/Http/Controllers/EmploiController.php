@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Emploi;
-use Illuminate\Support\Facades\Input;
 use Carbon\Carbon;
+use DB;
+use Illuminate\Support\Facades\Input;
 
 class EmploiController extends Controller
 {
@@ -14,30 +15,14 @@ class EmploiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request, $ordering=null)
+    public function index(Request $request)
     {
-        //
-        $ordering = $request->get('ordering');
-        dd($ordering);
-        
-        //expired 2 weeks ago
-        //http://localhost:8000/?ordering=ago
-        if ($ordering == 'ago') {
-           $emplois = Emploi::where('language', 'EN')->where( 'created_at', '>', Carbon::now()->subDays(14))->paginate(25)->orderBy('created_at', 'asc');
+
+           //DB::enableQueryLog();
+           $emplois = Emploi::where('language', 'EN')->orderBy('EXPIRYDATE', 'asc')->Paginate(25);
+           //var_dump($emplois, DB::getQueryLog());
            return view('emploi.index', ['emplois' => $emplois]);
            //return response()->json($emplois,200,[],JSON_PRETTY_PRINT);
-        }
-        // will expire 2 weeks from now
-        //http://localhost:8000/?ordering=from
-        elseif ($ordering == 'from') {
-           $emplois = Emploi::where('language', 'EN')->where( 'created_at', '>', Carbon::now()->addDays(14))->paginate(25)->orderBy('created_at', 'desc');
-           return view('emploi.index', ['emplois' => $emplois]);
-           //return response()->json($emplois,200,[],JSON_PRETTY_PRINT);
-        }else {
-           $emplois = Emploi::where('language', 'EN')->Paginate(25);
-           return view('emploi.index', ['emplois' => $emplois]);
-           //return response()->json($emplois,200,[],JSON_PRETTY_PRINT);
-        }
     }
 
     /**
@@ -47,10 +32,10 @@ class EmploiController extends Controller
      * @return \Illuminate\Http\Response
      * 
      */
-    public function ago(Request $request)
+    public function post_2_weeks_ago(Request $request)
     {
         //
-        $emplois = Emploi::where('language', 'EN')->where( 'created_at', '>', Carbon::now()->subDays(14))->paginate(25)->orderBy('created_at', 'asc');
+        $emplois = Emploi::where('language', 'EN')->where( 'POSTDATE', '>', Carbon::now()->subDays(14))->orderBy('EXPIRYDATE', 'asc')->paginate(25);
            return view('emploi.index', ['emplois' => $emplois]);
     }
     /**
@@ -60,10 +45,13 @@ class EmploiController extends Controller
      * @return \Illuminate\Http\Response
      * 
      */
-    public function from_now(Request $request)
+    public function expire_in_2_weeks_from_now(Request $request)
     {
         //
-        $emplois = Emploi::where('language', 'EN')->where( 'created_at', '>', Carbon::now()->addDays(14))->paginate(25)->orderBy('created_at', 'asc');
+        $date_now = Carbon::now();
+        $date_in_2_weeks = Carbon::now()->addDays(14);
+
+        $emplois = Emploi::where('language', 'EN')->whereBetween( 'EXPIRYDATE', [$date_now, $date_in_2_weeks])->orderBy('EXPIRYDATE', 'asc')->paginate(25);
            return view('emploi.index', ['emplois' => $emplois]);
     }
     /**

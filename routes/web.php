@@ -14,9 +14,9 @@
 
 
 //homeListView
-Route::get('/emploi/expire_in_two_weeks_from_now', 'EmploiController@from_nom')->name('home_from_now');
-Route::get('/emploi/post_2_weeks_ago}', 'EmploiController@ago')->name('home_ago');
 Route::get('/', 'EmploiController@index')->name('home');
+Route::get('/emploi/expire_in_two_weeks_from_now', 'EmploiController@expire_in_2_weeks_from_now')->name('will_expire_2_weeks_from_now');
+Route::get('/emploi/post_2_weeks_ago}', 'EmploiController@post_2_weeks_ago')->name('posted_whithin_the_last_2_weeks');
 
 //Detail View (get)
 Route::get('emploi/show/{id}', 'EmploiController@show')->where('id', '[0-9]+')->name('detail');
