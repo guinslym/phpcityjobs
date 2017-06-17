@@ -92,7 +92,7 @@
 	  var l_annee = date.getFullYear();
 
 		var today = new Date();
-
+	console.log(le_jour + " " + le_mois + " " + l_annee);
 	var jqxhr = $.ajax({
 	  method: "GET",
 	  url: "/statisticsJSON",
