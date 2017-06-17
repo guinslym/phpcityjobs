@@ -14,8 +14,8 @@
 
 
 //homeListView
-Route::get('/query/{ordering?}', 'EmploiController@index')->name('home_ordering');
-Route::get('/emploi/{ordering?}', 'EmploiController@index')->name('home_order');
+Route::get('/emploi/expire_in_two_weeks_from_now', 'EmploiController@from_nom')->name('home_from_now');
+Route::get('/emploi/post_2_weeks_ago}', 'EmploiController@ago')->name('home_ago');
 Route::get('/', 'EmploiController@index')->name('home');
 
 //Detail View (get)

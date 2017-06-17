@@ -18,6 +18,7 @@ class EmploiController extends Controller
     {
         //
         $ordering = $request->get('ordering');
+        dd($ordering);
         
         //expired 2 weeks ago
         //http://localhost:8000/?ordering=ago
@@ -39,6 +40,32 @@ class EmploiController extends Controller
         }
     }
 
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     * 
+     */
+    public function ago(Request $request)
+    {
+        //
+        $emplois = Emploi::where('language', 'EN')->where( 'created_at', '>', Carbon::now()->subDays(14))->paginate(25)->orderBy('created_at', 'asc');
+           return view('emploi.index', ['emplois' => $emplois]);
+    }
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     * 
+     */
+    public function from_now(Request $request)
+    {
+        //
+        $emplois = Emploi::where('language', 'EN')->where( 'created_at', '>', Carbon::now()->addDays(14))->paginate(25)->orderBy('created_at', 'asc');
+           return view('emploi.index', ['emplois' => $emplois]);
+    }
     /**
      * Display the specified resource.
      *
