@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Carbon\Carbon;
 
 class CreateEmploiTable extends Migration
 {
@@ -32,8 +33,10 @@ class CreateEmploiTable extends Migration
              $table->longText('COMPANY_DESC')->nullable();
              $table->string('language', 4)->default('EN')->nullable();
              $table->boolean('tweeted')->nullable();
-             $table->string('slug', 200)->nullable();
-             $table->timestamps();
+             //$table->timestamps();
+             //for mysql 5.6.5 so that my timestamps won;t be nullable
+             $table->dateTime('created_at')->default(Carbon::now()->format('Y-m-d H:i:s'));
+             $table->dateTime('updated_at')->default(Carbon::now()->format('Y-m-d H:i:s'));
         });
     }
 

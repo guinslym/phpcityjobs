@@ -1,15 +1,27 @@
 todo:
- ✔ Realtionship (OnetoOne) @done (17-06-01 18:11)
- ✔ Seed the db: again @done (17-06-01 18:11)
- ✔ Detail.blade.php @done (17-06-01 18:22)
- ✔ Updates the link (a:href) in the application @done (17-06-01 19:04)
- ✔ Pagination (Index.blade.php) @done (17-06-01 18:38)
-   ✔ https://www.youtube.com/watch?v=aeqkFPvV3Eg @done (17-06-01 22:40)
+ ☐ I didn't loop properly the json file
+   ✔ Seed the DB (Migrations/seeds/EmploisTableSeeder) @done (17-06-16 22:44)
+   ✔ Timestamps() default to add in db @done (17-06-16 22:44)
+   ☐ Add language
  ☐ job_search (search form)
  ☐ stats
- ☐ Update_and_tweets\\\
+ ☐ Update_and_tweets\
+ ☐ VUEjs
 
+Seeding:
+ ☐ php artisan migrate
+ ☐ php artisan db:seed --class=EmploisTableSeeder
+ ☐ truncate emplois; // in PHPMySQL
 
  holehearted forgiveness
 
  http://93.190.141.118/0/20632842/7/e7860000ee545ebf93b02a239ee03b87/4/Laravel_5.x_Cookbook.pdf
+
+＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
+Archive:
+ ✔ https://www.youtube.com/watch?v=aeqkFPvV3Eg @done (17-06-01 22:40) @project(todo)
+ ✔ Updates the link (a:href) in the application @done (17-06-01 19:04) @project(todo)
+ ✔ Pagination (Index.blade.php) @done (17-06-01 18:38) @project(todo)
+ ✔ Detail.blade.php @done (17-06-01 18:22) @project(todo)
+ ✔ Seed the db: again @done (17-06-01 18:11) @project(todo)
+ ✔ Realtionship (OnetoOne) @done (17-06-01 18:11) @project(todo)
