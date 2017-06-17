@@ -7,6 +7,7 @@
   <meta name="author" content="Guinsly Mondésir">
   <meta name="author" content="Mongex.info">
   <meta name='subject' content="">
+  <link type="text/plain" rel="author" href="{{ route('humans.txt') }}" />
 
     <title>Ottawa: Jobs with the City - Open Data</title>
 
@@ -81,7 +82,8 @@
         <ul class="bs-docs-footer-links">
             <li><a target="_blank" href="https://github.com/guinslym/cityjobs">GitHub</a></li>
             <li><a target="_blank" href="https://twitter.com/">Twitter</a></li>
-            <li><a target="_blank" href="/humans.txt">humans.txt</a></li>
+            <li><a target="_blank" href="{{ route('humans.txt') }}">humans.txt</a></li>
+
         </ul>
         <p>Designed and built with all the love in the world by <a href="https://twitter.com/guinslym?lang=en" target="_blank">@guinslym</a>.
         <p>Code licensed <a target="_blank" href="https://creativecommons.org/licenses/by-nd/3.0/">CC-BY-ND</a>.</p>

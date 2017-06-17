@@ -7,16 +7,16 @@ todo:
  ✔ set language (or remove French Language -- or by default take EN only) @done (17-06-16 23:30)
  ✔ View will expired in 2 weeks .. I don't think it works @done (17-06-17 13:58)
  ☐ Update_and_tweets ... add this route (with crypt and hour)
- ✔ Template font-awesome (already expired) @done (17-06-17 14:03)
- ✔ Add number of jobs found @done (17-06-17 14:22)
- ✔ add template (order down (font-awesome)) @done (17-06-17 14:03)
  ☐ add human.txt
  ☐ /About/ change Github page
  ☐ stats (add this.. ) 1 hour
  ☐ Add 404 and 500 pages
- ✔ Jumbotron add svg (logo) into local @done (17-06-17 14:22)
  ☐ Download link for JSON( https://stackoverflow.com/questions/26971668/how-to-create-download-link-in-laravel/26974633)
  ☐ Add internationnalization (i18n) instead of vuejs
+ ✔ Template font-awesome (already expired) @done (17-06-17 14:03)
+ ✔ Add number of jobs found @done (17-06-17 14:22)
+ ✔ add template (order down (font-awesome)) @done (17-06-17 14:03)
+ ✔ Jumbotron add svg (logo) into local @done (17-06-17 14:22)
  ☐ VUEjs
 
 Seeding:
