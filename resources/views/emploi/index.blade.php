@@ -31,6 +31,11 @@
 
 <div class="outterspace">
 
+<h3>
+  {{ $emplois->total() }} 
+  {{ str_plural(' job', $emplois->total() ) }}
+  found
+</h3>
 {{ $emplois->links() }}
 
 <span class="nonetype" style="display:none;">
