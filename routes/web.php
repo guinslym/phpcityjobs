@@ -28,10 +28,13 @@ Route::get('/about/', 'EmploiController@aboutPage')->name('about');
 Route::get('/download/', 'EmploiController@download')->name('download');
 
 
-//Statistics (JSON)
+//Statistics
 Route::get('/statistics', 'EmploiController@showStatistics')->name('statistics');
-Route::get('/statistics/{annee}/{mois}/{jour}', 'EmploiController@showStatisticsJSON')->name('statsJSON')->where('annee', '^(19|20)\d{2}$')->where('mois', '^(19|20)\d{2}$')->where('jour', '^(19|20)\d{2}$');
+//statistics result (JSON)
+Route::get('/statisticsJSON/{annee}/{mois}/{jour}', 'EmploiController@showStatisticsJSON')->name('statsJSON');//->where('annee', '^(19|20)\d{2}$')->where('mois', '^(19|20)\d{2}$')->where('jour', '^(19|20)\d{2}$');
 
 //Search View (get)
 Route::get('search', 'EmploiController@search')->name('search');
 
+
+Route::get('update/{passcode}', 'EmploiController@update_db')->where('passcode', 'A-Z]+')->name('update_db');

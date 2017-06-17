@@ -7,7 +7,7 @@
   </div>
 
 	<h1>Statistics</h1>
-array of objects::{{ App\Emploi::all() }}
+
 	<button id="example-c-PreviousDomain-selector" style="margin-bottom: 10px;" class="btn btn-info btn-xs">
 		<i class="fa fa-arrow-circle-left"></i>
 	</button>
@@ -30,9 +30,27 @@ array of objects::{{ App\Emploi::all() }}
 		color: #999;
 	}
 	</style>
+	
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
 	<script type="text/javascript">
-	   var lang = "en"
+
+
+	   axios.get('/statisticsJSON', {
+		    params: {
+		      annee: 2017,
+		      mois: 06,
+		      jour: 15,
+		    }
+		  })
+		  .then(function (response) {
+		  	console.log('Les donnee via ajax');
+		    console.log( response.data);
+		  })
+		  .catch(function (error) {
+		    console.log(error);
+		  });
+
 	</script>
 	<script type="text/javascript">
 
@@ -45,15 +63,15 @@ array of objects::{{ App\Emploi::all() }}
 
 		return d;
 	}
+
 	var thisMonth = new Date();
 
 	var cal = new CalHeatMap();
-	var hello =0;
 	cal.init({
 		itemSelector: "#example-d",
 		domain: "month",
 	  itemName: ["job", "jobs"],
-		data: {{ App\Emploi::all() }},
+		data:  {!! $datas !!},
 		start: thisMonth.SubtractMonth(5),
 		cellSize: 12,
 	  cellPadding: 5,
@@ -69,36 +87,26 @@ array of objects::{{ App\Emploi::all() }}
 		nextSelector: "#example-c-NextDomain-selector",
 	    onClick: function(date, nb) {
 
-	        //Add AJAX call for all the jobs for that date
-	        //Add cookie or variable for the language i18n
-	        /*
-	        $("#onClick-placeholder").html("You just clicked <br/>on <b>" +
-	            date + "</b> <br/>with <b>" +
-	            (nb === null ? "unknown" : nb) + "</b> jobs"
-	        );
-	*/
 	  var le_jour = date.getDate();
 	  var le_mois = date.getMonth() + 1;
 	  var l_annee = date.getFullYear();
 
 		var today = new Date();
 
-	  //console.log(le_jour);
-	  //console.log(le_mois);
-	  //console.log(l_annee);
 	var jqxhr = $.ajax({
 	  method: "GET",
-	  url: "/statistics",
-	  data: { mois: le_mois,
+	  url: "/statisticsJSON",
+	  data: { 
 	          annee: l_annee,
-	          jour:le_jour,
-	          language: lang
+	  		  mois: le_mois,
+	          jour:le_jour
 	        }
 	})
 	  .done(function(data) {
 	    //
 	    console.log( data );
 	    //mettre les données
+
 	    $("#onClick-placeholder").empty();
 	    data.forEach(function(entry) {
 	      //console.log(entry);
@@ -113,7 +121,7 @@ array of objects::{{ App\Emploi::all() }}
 					expirydate = entry['fields']['EXPIRYDATE'] + "<span class='already_expired'> -> already expired</span>";
 				}
 
-				sentence = "Position : <b style='font-size:18px;'><a href=\"/" + lang +"/emplois/" + entry['pk'] + '/' + "\"</a>" +  position + " </b><br/>" + " date : " +"<b>" +
+				sentence = "Position : <b style='font-size:18px;'><a href=\"/" + "/emplois/" + entry['pk'] + '/' + "\"</a>" +  position + " </b><br/>" + " date : " +"<b>" +
 			 expirydate + "</b> <br/> ";
 
 

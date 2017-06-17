@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Input;
 
 class EmploiController extends Controller
 {
+
+
     /**
      * Display a listing of the resource.
      *
@@ -91,24 +93,19 @@ class EmploiController extends Controller
      */
     public function showStatistics()
     {
-        /*
-        english = Job.objects.filter(language=self.language())
-        #Grouup by date
-        data = english.values('POSTDATE').annotate(dcount=Count('POSTDATE'))
-        content = {}
-        #I want the date in a UNIX TIME format
-        for job in data:
-            unix_time = time.mktime(job['POSTDATE'].timetuple())
-            content.update({unix_time:job['dcount']})
-        context['stats'] = content
+        $job_post_date = Emploi::where('language', 'EN')->pluck('POSTDATE');
+        $unix_time = array();
 
-        return context
+        for ($i=0; $i < count($job_post_date) ; $i++) { 
+            $unix_time[$i] = strtotime($job_post_date[$i]);
+        }
 
-        */
+        $datas = array_count_values($unix_time);
+        $datas = json_encode($datas);
 
-        return view('emploi.stats');
-        //return response()->json('Statistics' ,200,[],JSON_PRETTY_PRINT);
+        return view('emploi.stats', ['datas' => $datas]);
     }
+
 
     /**
      * Display a Statistic page AJAX call.
@@ -121,9 +118,9 @@ class EmploiController extends Controller
         $annee = $request->get('annee');
         $mois = $request->get('mois');
         $jour = $request->get('jour');
-        $emplois = Emploi::whereYear('created_at', '=', $annee)
-              ->whereMonth('created_at', '=', $mois)
-              ->whereDay('created_at', '=', $jour)
+        $emplois = Emploi::whereYear('POSTDATE', '=', $annee)
+              ->whereMonth('POSTDATE', '=', $mois)
+              ->whereDay('POSTDATE', '=', $jour)
               ->get();
         return response()->json(emplois ,200,[],JSON_PRETTY_PRINT);
     }
