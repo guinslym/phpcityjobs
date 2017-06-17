@@ -6,14 +6,14 @@ todo:
  ✔ job_search (search form) @done (17-06-16 23:13)
  ✔ set language (or remove French Language -- or by default take EN only) @done (17-06-16 23:30)
  ☐ View will expired in 2 weeks .. I don't think it works
- ☐ Add 404 and 500 pages
- ☐ Add number of jobs found
  ☐ Update_and_tweets ... add this route (with crypt and hour)
- ☐ stats (add this.. ) 1 hour
  ☐ Template font-awesome (already expired)
- ☐ add human.txt
+ ☐ Add number of jobs found
  ☐ add template (order down (font-awesome))
- ☐ about change Github page
+ ☐ add human.txt
+ ☐ /About/ change Github page
+ ☐ stats (add this.. ) 1 hour
+ ☐ Add 404 and 500 pages
  ☐ Jumbotron add svg (logo) into local
  ☐ VUEjs
 
