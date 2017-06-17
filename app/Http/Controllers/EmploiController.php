@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Emploi;
 use Illuminate\Support\Facades\Input;
-
+use Carbon\Carbon;
 
 class EmploiController extends Controller
 {
@@ -22,18 +22,18 @@ class EmploiController extends Controller
         //expired 2 weeks ago
         //http://localhost:8000/?ordering=ago
         if ($ordering == 'ago') {
-           $emplois = Emploi::paginate(25)->orderBy('created_at', 'asc')->first();
+           $emplois = Emploi::where('language', 'EN')->where( 'created_at', '>', Carbon::now()->subDays(14))->paginate(25)->orderBy('created_at', 'asc');
            return view('emploi.index', ['emplois' => $emplois]);
            //return response()->json($emplois,200,[],JSON_PRETTY_PRINT);
         }
         // will expire 2 weeks from now
         //http://localhost:8000/?ordering=from
         elseif ($ordering == 'from') {
-           $emplois = Emploi::paginate(25)->orderBy('created_at', 'desc')->first();
+           $emplois = Emploi::where('language', 'EN')->where( 'created_at', '>', Carbon::now()->addDays(14))->paginate(25)->orderBy('created_at', 'desc');
            return view('emploi.index', ['emplois' => $emplois]);
            //return response()->json($emplois,200,[],JSON_PRETTY_PRINT);
         }else {
-           $emplois = Emploi::Paginate(25);
+           $emplois = Emploi::where('language', 'EN')->Paginate(25);
            return view('emploi.index', ['emplois' => $emplois]);
            //return response()->json($emplois,200,[],JSON_PRETTY_PRINT);
         }
@@ -124,7 +124,7 @@ class EmploiController extends Controller
         
         $searchkey = $request->get('searchkey');
         $keyword = Input::get('searchKey', '');
-        $emplois = Emploi::SearchByKeyword($keyword)->get();
+        $emplois = Emploi::where('language', 'EN')->SearchByKeyword($keyword)->get();
         return view('emploi.search', ['emplois' => $emplois ]);
         //return 0;
     }

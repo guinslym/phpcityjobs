@@ -4,9 +4,15 @@ todo:
    ✔ Timestamps() default to add in db @done (17-06-16 22:44)
    ✔ Add language @done (17-06-16 23:13)
  ✔ job_search (search form) @done (17-06-16 23:13)
- ☐ stats (add this.. ) 1 hour
- ☐ Update_and_tweets ... add this route (with crypt and hour)
+ ✔ set language (or remove French Language -- or by default take EN only) @done (17-06-16 23:30)
+ ☐ View will expired in 2 weeks .. I don't think it works
  ☐ Add 404 and 500 pages
+ ☐ Add number of jobs found
+ ☐ Update_and_tweets ... add this route (with crypt and hour)
+ ☐ stats (add this.. ) 1 hour
+ ☐ Template font-awesome (already expired)
+ ☐ add human.txt
+ ☐ add template (order down (font-awesome))
  ☐ VUEjs
 
 Seeding:

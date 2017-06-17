@@ -48,7 +48,7 @@
       </h3>
 
     <p>
-            {{ str_limit($emploi->JOB_SUMMARY, 50) }}
+            {!! str_limit($emploi->JOB_SUMMARY, 300) !!}
     </p>
     <ul>
 
