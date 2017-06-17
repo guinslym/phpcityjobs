@@ -116,12 +116,16 @@ class EmploiController extends Controller
     {
 
         //
+        //DB::enableQueryLog();
+
         $annee = $request->get('annee');
         $mois = $request->get('mois');
         $jour = $request->get('jour');
         $emplois = Emploi::whereYear('POSTDATE', '=', $annee)->whereMonth('POSTDATE', '=', $mois)->whereDay('POSTDATE', '=', $jour)->get();
-        return $emplois;
-        //return response()->json($emplois ,200,[],JSON_PRETTY_PRINT);
+        
+        //var_dump($emplois, DB::getQueryLog());
+        return response()->json($emplois ,200,[],JSON_PRETTY_PRINT);
+        //return $emplois;
     }
 
     /**

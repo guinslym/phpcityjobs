@@ -8,6 +8,7 @@ todo:
  ✔ View will expired in 2 weeks .. I don't think it works @done (17-06-17 13:58)
  ☐ Heavy duty jobs:
    ☐ stats (add this.. ) 1 hour
+     ☐ Something is wrong with the Database query when I click on a calendar date
    ☐ Update_and_tweets ... add this route (with crypt and hours)
  ☐ Add internationnalization (i18n) instead of vuejs
  ✔ Add 404 and 500 pages @done (17-06-17 14:53)
