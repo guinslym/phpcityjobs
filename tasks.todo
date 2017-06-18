@@ -1,6 +1,5 @@
 todo:
  ☐ Add old datas (postpone`)
- ☐ Add internationnalization (i18n) 
  ☐ VUEjs
 
 Seeding:
@@ -10,6 +9,7 @@ Seeding:
 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ Add internationnalization (i18n) (not into the php) @done (17-06-18 15:08) @project(todo)
  ✔ Update_and_tweets ... add this route (with crypt and hours) @done (17-06-18 15:05) @project(todo)
  ✔ stats (add this.. ) 1 hour @done (17-06-18 14:20) @project(todo)
  ✔ Something is wrong with the Database query when I click on a calendar date @done (17-06-18 14:20) @project(todo)
