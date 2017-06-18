@@ -179,12 +179,79 @@ class EmploiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function update_and_tweets()
+    public function update_and_tweets(Request $request, $passcode=null)
     {
+        $passcode = $request->get('passcode');
+        if ($passcode == '2HT7*pV6JJps7$PfLXd2KM7vzdj!Ztd*a6NRWsPvnmTnSr'){
+            \Log::info('the passcode is correct');
+
         //
-        $emplois = Emploi::all();
-        return response()->json($emplois,200,[],JSON_PRETTY_PRINT);
-    }
+        $languages = array('http://www.ottawacityjobs.ca/en/data/', 'http://www.ottawacityjobs.ca/fr/data/');
+
+
+        //Looping through each language
+        foreach ($languages as $language_url ) {
+           //print_r($language_url);
+           //print_r("\n");
+
+        
+        $json = file_get_contents($language_url);
+        $emplois = json_decode($json);
+        $emplois = $emplois->jobs;
+
+
+        //Looping through 90 json objects (jobs)
+        for ($i = 0; $i < count($emplois); $i++) {
+
+            //Get the language "EN", 'FR'
+            $jobref = isset($emplois[$i]->JOBREF) ? $emplois[$i]->JOBREF   : ' ';
+            $job_language = explode("-", $jobref)[2];
+
+            $jobref_found = Emploi::where('JOBREF', '=', $jobref)->first();
+
+            if($jobref_found == null ){
+                \Log::info('inserting a Job to the db');
+
+            Emploi::insert(
+                array(
+
+'JOBURL' => isset($emplois[$i]->JOBURL) ? $emplois[$i]->JOBURL   : ' ',
+'SALARYMAX' => isset($emplois[$i]->SALARYMAX)?  $emplois[$i]->SALARYMAX  : ' ' ,
+'SALARYMIN' => isset($emplois[$i]->SALARYMIN)?   $emplois[$i]->SALARYMIN : ' ' ,
+'SALARYTYPE' => isset($emplois[$i]->SALARYTYPE)? $emplois[$i]->SALARYTYPE : ' ' ,
+'NAME' => isset($emplois[$i]->NAME)? $emplois[$i]->NAME : ' ' ,
+'POSITION' => isset($emplois[$i]->POSITION)? $emplois[$i]->POSITION : ' ' ,
+'JOBREF' => isset($emplois[$i]->JOBREF) ? $emplois[$i]->JOBREF : ' ',
+'JOB_SUMMARY' => isset($emplois[$i]->JOB_SUMMARY) ? $emplois[$i]->JOB_SUMMARY : ' ',
+
+'POSTDATE' => isset($emplois[$i]->POSTDATE) ? Carbon::parse($emplois[$i]->POSTDATE) : ' ',
+'EXPIRYDATE' => isset($emplois[$i]->EXPIRYDATE)? Carbon::parse($emplois[$i]->EXPIRYDATE) : ' ' ,
+'KNOWLEDGE' => isset($emplois[$i]->KNOWLEDGE) ? $emplois[$i]->KNOWLEDGE : ' ',
+'LANGUAGE_CERTIFICATES' => isset($emplois[$i]->LANGUAGE_CERTIFICATES) ?  $emplois[$i]->LANGUAGE_CERTIFICATES : ' ' ,
+'EDUCATIONANDEXP' => isset($emplois[$i]->EDUCATIONANDEXP) ? $emplois[$i]->EDUCATIONANDEXP : ' ' ,
+'COMPANY_DESC' => isset( $emplois[$i]->COMPANY_DESC) ? $emplois[$i]->COMPANY_DESC   : ' ',
+ 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+ 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+ 'language' => $job_language,
+                
+
+                        )//end array
+                    );//end Emploi::insert
+
+                }else{
+                    //nothing
+                }//end if jobref found
+
+
+            }//end for loop for jobs
+
+        }//end of looping through each language_url
+
+            return 'Correct';
+        }else{
+            return 'not correct';
+        }
+    }//end function update_and_tweets()
 
 
 }
