@@ -37,4 +37,4 @@ Route::get('/statisticsJSON/', 'EmploiController@showStatisticsJSON')->name('sta
 Route::get('search', 'EmploiController@search')->name('search');
 
 
-Route::get('update/{passcode}', 'EmploiController@update_db')->where('passcode', 'A-Z]+')->name('update_db');
+Route::get('update', 'EmploiController@update_and_tweets')->where('passcode', 'A-Z]+')->name('update_db');

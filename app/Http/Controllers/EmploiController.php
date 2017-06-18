@@ -173,4 +173,18 @@ class EmploiController extends Controller
     }
 
 
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function update_and_tweets()
+    {
+        //
+        $emplois = Emploi::all();
+        return response()->json($emplois,200,[],JSON_PRETTY_PRINT);
+    }
+
+
 }
