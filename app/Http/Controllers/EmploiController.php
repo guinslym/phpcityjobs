@@ -7,9 +7,66 @@ use App\Emploi;
 use Carbon\Carbon;
 use DB;
 use Illuminate\Support\Facades\Input;
+date_default_timezone_set('America/Montreal');
 
 class EmploiController extends Controller
 {
+
+
+    /**
+     * Display a Statistic page.
+     *
+     * @return \Illuminate\Http\Response
+     * 
+     */
+    public function showStatistics()
+    {
+        $job_post_date = Emploi::where('language', 'EN')->pluck('POSTDATE');
+        $unix_time = array();
+
+        for ($i=0; $i < count($job_post_date) ; $i++) { 
+            $unix_time[$i] = strtotime($job_post_date[$i]);
+        }
+
+        $job_post_regular = array();
+        for ($i=0; $i < count($job_post_date) ; $i++) { 
+            $job_post_regular[$i] = $job_post_date[$i];
+        }
+
+        $datas = array_count_values($unix_time);
+        $datas = json_encode($datas);
+        
+        $regular_time_zone = array_count_values($job_post_regular);
+        $regular_time_zone = json_encode($regular_time_zone);
+
+        return view('emploi.stats', ['datas' => $datas, 'regular_time_zone' => $regular_time_zone]);
+    }
+
+
+    /**
+     * Display a Statistic page AJAX call.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showStatisticsJSON(Request $request, $annee=null, $mois=null, $jour=null)
+    {
+
+        //
+        //DB::enableQueryLog();
+
+        $annee = $request->get('annee');
+        \Log::info($annee);
+        $mois = $request->get('mois');
+        \Log::info($mois);
+        $jour = $request->get('jour');
+        \Log::info($jour);
+        $emplois = Emploi::whereYear('POSTDATE', '=', $annee)->whereMonth('POSTDATE', '=', $mois)->whereDay('POSTDATE', '=', $jour)->get();
+        
+        //var_dump($emplois, DB::getQueryLog());
+        return response()->json($emplois ,200,[],JSON_PRETTY_PRINT);
+        //return $emplois;
+    }
+
 
 
     /**
@@ -85,48 +142,7 @@ class EmploiController extends Controller
         //return response()->json('About page' ,200,[],JSON_PRETTY_PRINT);
     }
 
-    /**
-     * Display a Statistic page.
-     *
-     * @return \Illuminate\Http\Response
-     * 
-     */
-    public function showStatistics()
-    {
-        $job_post_date = Emploi::where('language', 'EN')->pluck('POSTDATE');
-        $unix_time = array();
 
-        for ($i=0; $i < count($job_post_date) ; $i++) { 
-            $unix_time[$i] = strtotime($job_post_date[$i]);
-        }
-
-        $datas = array_count_values($unix_time);
-        $datas = json_encode($datas);
-
-        return view('emploi.stats', ['datas' => $datas]);
-    }
-
-
-    /**
-     * Display a Statistic page AJAX call.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function showStatisticsJSON(Request $request, $annee=null, $mois=null, $jour=null)
-    {
-
-        //
-        //DB::enableQueryLog();
-
-        $annee = $request->get('annee');
-        $mois = $request->get('mois');
-        $jour = $request->get('jour');
-        $emplois = Emploi::whereYear('POSTDATE', '=', $annee)->whereMonth('POSTDATE', '=', $mois)->whereDay('POSTDATE', '=', $jour)->get();
-        
-        //var_dump($emplois, DB::getQueryLog());
-        return response()->json($emplois ,200,[],JSON_PRETTY_PRINT);
-        //return $emplois;
-    }
 
     /**
      * Display the specified resource.

@@ -9,8 +9,9 @@ todo:
  ☐ Heavy duty jobs:
    ☐ stats (add this.. ) 1 hour
      ☐ Something is wrong with the Database query when I click on a calendar date
+     ☐ In the db there is a date (6-juin-2016 (2 jobs)) but in the calendar this view is not being display. There maybe an error with the mktime() or 
    ☐ Update_and_tweets ... add this route (with crypt and hours)
- ☐ Add internationnalization (i18n) instead of vuejs
+ ✔ Add internationnalization (i18n) instead of vuejs @done (17-06-17 20:20)
  ✔ Add 404 and 500 pages @done (17-06-17 14:53)
  ✔ Download link for JSON( https://stackoverflow.com/questions/26971668/how-to-create-download-link-in-laravel/26974633) @done (17-06-17 14:57)
  ✔ add human.txt @done (17-06-17 14:43)

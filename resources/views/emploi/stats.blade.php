@@ -45,7 +45,7 @@
 		  })
 		  .then(function (response) {
 		  	console.log('Les donnee via ajax');
-		    console.log( response.data);
+		    //console.log( response.data);
 		  })
 		  .catch(function (error) {
 		    console.log(error);
@@ -65,6 +65,19 @@
 	}
 
 	var thisMonth = new Date();
+
+	var regulat = {!! $regular_time_zone !!}
+	var otherdata = {!! $datas !!};
+
+	var obj = {};
+	for (var key in regulat ) {
+	  if (regulat .hasOwnProperty(key)) {
+	    console.log(Number(new Date(key)) + " -> " + regulat [key]);
+	    obj["'" + String(Number(new Date(key))) + "'" ] = regulat [key]
+	  }
+	}
+
+
 
 	var cal = new CalHeatMap();
 	cal.init({
