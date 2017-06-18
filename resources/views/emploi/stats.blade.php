@@ -30,28 +30,7 @@
 		color: #999;
 	}
 	</style>
-	
-	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
-	<script type="text/javascript">
-
-
-	   axios.get('/statisticsJSON', {
-		    params: {
-		      annee: 2017,
-		      mois: 06,
-		      jour: 15,
-		    }
-		  })
-		  .then(function (response) {
-		  	console.log('Les donnee via ajax');
-		    //console.log( response.data);
-		  })
-		  .catch(function (error) {
-		    console.log(error);
-		  });
-
-	</script>
 	<script type="text/javascript">
 
 
@@ -65,18 +44,6 @@
 	}
 
 	var thisMonth = new Date();
-
-	var regulat = {!! $regular_time_zone !!}
-	var otherdata = {!! $datas !!};
-
-	var obj = {};
-	for (var key in regulat ) {
-	  if (regulat .hasOwnProperty(key)) {
-	    console.log(Number(new Date(key)) + " -> " + regulat [key]);
-	    obj['"' + String(Number(new Date(key))) + '"' ] = regulat [key]
-	  }
-	}
-
 
 
 	var cal = new CalHeatMap();
@@ -116,8 +83,7 @@
 	        }
 	})
 	  .done(function(data) {
-	    //
-	    console.log( data );
+	    //console.log( data );
 	    //mettre les données
 
 	    $("#onClick-placeholder").empty();
