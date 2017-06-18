@@ -9,7 +9,7 @@ todo:
  ☐ Heavy duty jobs:
    ✔ stats (add this.. ) 1 hour @done (17-06-18 14:20)
    ✔ Open in python and @done (17-06-18 14:20)
-     ☐ Something is wrong with the Database query when I click on a calendar date
+     ✔ Something is wrong with the Database query when I click on a calendar date @done (17-06-18 14:20)
      ☐ In the db there is a date (6-juin-2016 (2 jobs)) but in the calendar this view is not being display. There maybe an error with the mktime() or 
    ☐ Update_and_tweets ... add this route (with crypt and hours)
  ✔ Add internationnalization (i18n) instead of vuejs @done (17-06-17 20:20)
