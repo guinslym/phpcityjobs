@@ -55,11 +55,11 @@ class EmploiController extends Controller
         //DB::enableQueryLog();
 
         $annee = $request->get('annee');
-        \Log::info($annee);
+        //\Log::info($annee);
         $mois = $request->get('mois');
-        \Log::info($mois);
+        //\Log::info($mois);
         $jour = $request->get('jour');
-        \Log::info($jour);
+        //\Log::info($jour);
         $emplois = Emploi::where('language', 'EN')->whereYear('POSTDATE', '=', $annee)->whereMonth('POSTDATE', '=', $mois)->whereDay('POSTDATE', '=', $jour)->get();
         
         //var_dump($emplois, DB::getQueryLog());

@@ -7,8 +7,8 @@ todo:
  ✔ set language (or remove French Language -- or by default take EN only) @done (17-06-16 23:30)
  ✔ View will expired in 2 weeks .. I don't think it works @done (17-06-17 13:58)
  ☐ Heavy duty jobs:
-   ☐ stats (add this.. ) 1 hour
-   ☐ Open in python and
+   ✔ stats (add this.. ) 1 hour @done (17-06-18 14:20)
+   ✔ Open in python and @done (17-06-18 14:20)
      ☐ Something is wrong with the Database query when I click on a calendar date
      ☐ In the db there is a date (6-juin-2016 (2 jobs)) but in the calendar this view is not being display. There maybe an error with the mktime() or 
    ☐ Update_and_tweets ... add this route (with crypt and hours)
