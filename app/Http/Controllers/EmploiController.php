@@ -60,7 +60,7 @@ class EmploiController extends Controller
         \Log::info($mois);
         $jour = $request->get('jour');
         \Log::info($jour);
-        $emplois = Emploi::whereYear('POSTDATE', '=', $annee)->whereMonth('POSTDATE', '=', $mois)->whereDay('POSTDATE', '=', $jour)->get();
+        $emplois = Emploi::where('language', 'EN')->whereYear('POSTDATE', '=', $annee)->whereMonth('POSTDATE', '=', $mois)->whereDay('POSTDATE', '=', $jour)->get();
         
         //var_dump($emplois, DB::getQueryLog());
         return response()->json($emplois ,200,[],JSON_PRETTY_PRINT);

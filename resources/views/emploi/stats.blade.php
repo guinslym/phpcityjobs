@@ -73,7 +73,7 @@
 	for (var key in regulat ) {
 	  if (regulat .hasOwnProperty(key)) {
 	    console.log(Number(new Date(key)) + " -> " + regulat [key]);
-	    obj["'" + String(Number(new Date(key))) + "'" ] = regulat [key]
+	    obj['"' + String(Number(new Date(key))) + '"' ] = regulat [key]
 	  }
 	}
 
