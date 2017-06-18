@@ -1,27 +1,6 @@
 todo:
- ✔ I didn't loop properly the json file @done (17-06-16 23:13)
-   ✔ Seed the DB (Migrations/seeds/EmploisTableSeeder) @done (17-06-16 22:44)
-   ✔ Timestamps() default to add in db @done (17-06-16 22:44)
-   ✔ Add language @done (17-06-16 23:13)
- ✔ job_search (search form) @done (17-06-16 23:13)
- ✔ set language (or remove French Language -- or by default take EN only) @done (17-06-16 23:30)
- ✔ View will expired in 2 weeks .. I don't think it works @done (17-06-17 13:58)
- ☐ Heavy duty jobs:
-   ✔ stats (add this.. ) 1 hour @done (17-06-18 14:20)
-   ✔ Open in python and @done (17-06-18 14:20)
-     ✔ Something is wrong with the Database query when I click on a calendar date @done (17-06-18 14:20)
-     ✔ In the db there is a date (6-juin-2016 (2 jobs)) but in the calendar this view is not being display. There maybe an error with the mktime() or @done (17-06-18 14:20)
-   ✔ Update_and_tweets ... add this route (with crypt and hours) @done (17-06-18 15:05)
-   ☐ Add old data (postpone)
+ ☐ Add old datas (postpone`)
  ☐ Add internationnalization (i18n) 
- ✔ Add 404 and 500 pages @done (17-06-17 14:53)
- ✔ Download link for JSON( https://stackoverflow.com/questions/26971668/how-to-create-download-link-in-laravel/26974633) @done (17-06-17 14:57)
- ✔ add human.txt @done (17-06-17 14:43)
- ✔ /About/ change Github page @done (17-06-17 14:45)
- ✔ Template font-awesome (already expired) @done (17-06-17 14:03)
- ✔ Add number of jobs found @done (17-06-17 14:22)
- ✔ add template (order down (font-awesome)) @done (17-06-17 14:03)
- ✔ Jumbotron add svg (logo) into local @done (17-06-17 14:22)
  ☐ VUEjs
 
 Seeding:
@@ -29,12 +8,28 @@ Seeding:
  ☐ php artisan db:seed --class=EmploisTableSeeder
  ☐ truncate emplois; // in PHPMySQL
 
- holehearted forgiveness
-
- http://93.190.141.118/0/20632842/7/e7860000ee545ebf93b02a239ee03b87/4/Laravel_5.x_Cookbook.pdf
-
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ Update_and_tweets ... add this route (with crypt and hours) @done (17-06-18 15:05) @project(todo)
+ ✔ stats (add this.. ) 1 hour @done (17-06-18 14:20) @project(todo)
+ ✔ Something is wrong with the Database query when I click on a calendar date @done (17-06-18 14:20) @project(todo)
+ ✔ Open in python and @done (17-06-18 14:20) @project(todo)
+ ✔ In the db there is a date (6-juin-2016 (2 jobs)) but in the calendar this view is not being display. There maybe an error with the mktime() or @done (17-06-18 14:20) @project(todo)
+ ✔ Download link for JSON( https://stackoverflow.com/questions/26971668/how-to-create-download-link-in-laravel/26974633) @done (17-06-17 14:57) @project(todo)
+ ✔ Add 404 and 500 pages @done (17-06-17 14:53) @project(todo)
+ ✔ /About/ change Github page @done (17-06-17 14:45) @project(todo)
+ ✔ add human.txt @done (17-06-17 14:43) @project(todo)
+ ✔ Jumbotron add svg (logo) into local @done (17-06-17 14:22) @project(todo)
+ ✔ Add number of jobs found @done (17-06-17 14:22) @project(todo)
+ ✔ add template (order down (font-awesome)) @done (17-06-17 14:03) @project(todo)
+ ✔ Template font-awesome (already expired) @done (17-06-17 14:03) @project(todo)
+ ✔ View will expired in 2 weeks .. I don't think it works @done (17-06-17 13:58) @project(todo)
+ ✔ set language (or remove French Language -- or by default take EN only) @done (17-06-16 23:30) @project(todo)
+ ✔ job_search (search form) @done (17-06-16 23:13) @project(todo)
+ ✔ I didn't loop properly the json file @done (17-06-16 23:13) @project(todo)
+ ✔ Add language @done (17-06-16 23:13) @project(todo)
+ ✔ Timestamps() default to add in db @done (17-06-16 22:44) @project(todo)
+ ✔ Seed the DB (Migrations/seeds/EmploisTableSeeder) @done (17-06-16 22:44) @project(todo)
  ✔ https://www.youtube.com/watch?v=aeqkFPvV3Eg @done (17-06-01 22:40) @project(todo)
  ✔ Updates the link (a:href) in the application @done (17-06-01 19:04) @project(todo)
  ✔ Pagination (Index.blade.php) @done (17-06-01 18:38) @project(todo)
